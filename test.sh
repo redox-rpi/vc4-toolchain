@@ -12,7 +12,7 @@ set -u
 here=$(cd "$(dirname "$0")" && pwd)
 work=${WORK:-$here/work}
 tcc=$work/tinycc
-emul=$work/resim/vc4emul/vc4emul
+emul=$work/resim/build/vc4emul/vc4emul
 prefix=${VC4_PREFIX:-}
 if [ -z "$prefix" ]; then
 	if [ -x "$work/vc4-toolchain/prefix/bin/vc4-elf-gcc" ]; then

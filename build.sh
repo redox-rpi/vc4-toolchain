@@ -4,11 +4,9 @@
 #   ./build.sh [tinycc] [resim] [gcc]     (default: tinycc resim)
 #
 #   WORK=dir          where sources and builds go (default ./work)
-#   RESIM_PATCH=file  our local resim fixes (asr, bitflip, counters), applied
-#                     before building; not part of this repository (README)
 #   JOBS=n            parallel make jobs (default nproc)
 #
-# Results: $WORK/tinycc/vc4-tcc, $WORK/resim/vc4emul/vc4emul and, for gcc,
+# Results: $WORK/tinycc/vc4-tcc, $WORK/resim/build/vc4emul/vc4emul and, for gcc,
 # $WORK/vc4-toolchain/prefix/bin/vc4-elf-*. gcc takes about an hour and
 # downloads GCC's prerequisites (gmp, mpfr, mpc).
 set -eu
@@ -38,22 +36,9 @@ build_resim() {
 	log "resim $RESIM_COMMIT"
 	fetch "$RESIM_URL" "$RESIM_COMMIT" "$work/resim"
 	cd "$work/resim"
-	git checkout -q -- .
-	if [ -n "${RESIM_PATCH:-}" ]; then
-		git apply "$RESIM_PATCH"
-		log "applied $RESIM_PATCH"
-	else
-		log "no RESIM_PATCH: asr is wrong for negative values (README)"
-	fi
-	# resim predates the stricter headers of current g++ and sets its own
-	# CMAKE_CXX_FLAGS, so the missing includes come through a compiler
-	# wrapper; it asks for CMake 2.x (CMake 4 needs the policy floor)
-	printf '#!/bin/sh\nexec g++ -include cstdint -include cstring -include cassert "$@"\n' > "$work/resim-g++"
-	chmod +x "$work/resim-g++"
-	cmake -S . -B . -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
-		-DCMAKE_CXX_COMPILER="$work/resim-g++" > /dev/null
-	make -s -j"$jobs" vc4emul
-	log "$work/resim/vc4emul/vc4emul"
+	cmake -S . -B build > /dev/null
+	make -C build -s -j"$jobs" vc4emul
+	log "$work/resim/build/vc4emul/vc4emul"
 }
 
 build_gcc() {
