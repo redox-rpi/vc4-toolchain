@@ -1,0 +1,26 @@
+# Pinned versions of the VC4 (VideoCore IV VPU) toolchain of redox-rpi.
+# build.sh reads this file (shell syntax). Change a commit only with a PR,
+# after the tests in test.sh pass with it.
+
+# vc4-tcc: our TinyCC fork with the VC4 backend (LGPL-2.1-or-later)
+TINYCC_URL=https://github.com/redox-rpi/tinycc
+TINYCC_COMMIT=2634f616      # main, 2026-11-14 (backend #1, data addend fix #7)
+
+# resim / vc4emul: VPU simulator for the tests. Original mgottschlag/resim
+# (Mathias Gottschlag, 2012, MIT since 2020); Julian Brown's fork adds VC4
+# instructions (2015-16, no licence statement of its own) and is what the
+# GCC toolchain uses. Our fixes stay a local patch for now (RESIM_PATCH).
+RESIM_URL=https://github.com/itszor/resim
+RESIM_COMMIT=e9f04a3        # 2022-12 (= puppeh/resim), on mgottschlag 79785a8
+
+# GCC 6.2.1 for VC4 (reference compiler, builds the firmware): Julian
+# Brown's vc4-toolchain with binutils, gcc and newlib as submodules (GPL).
+VC4_TOOLCHAIN_URL=https://github.com/itszor/vc4-toolchain
+VC4_TOOLCHAIN_COMMIT=2f57f09
+VC4_BINUTILS_COMMIT=708acc85   # binutils 2.23.51
+VC4_GCC_COMMIT=0fe4b838        # vc4-elf-gcc 6.2.1 20161217
+VC4_NEWLIB_COMMIT=89abe4a5
+
+# csmith and creduce come from the distribution (Ubuntu): csmith 2.3.0,
+# creduce 2.11.0.
+CSMITH_VERSION=2.3.0
