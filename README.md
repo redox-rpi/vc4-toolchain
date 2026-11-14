@@ -42,6 +42,6 @@ notes. Status of all sources redox-rpi uses: rpi-open-firmware
 ## Changing a version
 
 Change `toolchain.lock` in a pull request, run `./test.sh` (with
-`FIRMWARE`), and put the result in the PR. The plan and decisions for
-vc4-tcc are in rpi-open-firmware
-[docs/tcc-vc4.md](https://github.com/redox-rpi/rpi-open-firmware/blob/redox-rpi/docs/tcc-vc4.md).
+`FIRMWARE`), and put the result in the PR. The decisions for vc4-tcc are
+in redox-rpi/tinycc
+[docs/vc4-decisions.md](https://github.com/redox-rpi/tinycc/blob/main/docs/vc4-decisions.md).
