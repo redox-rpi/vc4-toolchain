@@ -35,9 +35,9 @@ of Mathias Gottschlag's original (MIT). It merges Julian Brown's VC4
 additions (the version the GCC toolchain uses) and adds what vc4-tcc's
 tests need: `asr` fixed, `switch` (GCC jump tables), `bitflip`, `abs`, an
 instruction counter (`VC4EMUL_COUNT`) and a pc profile (`VC4EMUL_PROF`).
-Its README has the origin of every part and the licence notes; all forks
-are compared in rpi-open-firmware
-[docs/forks.md](https://github.com/redox-rpi/rpi-open-firmware/blob/redox-rpi/docs/forks.md).
+Its README has the origin of every part, the other forks and the licence
+notes. Status of all sources redox-rpi uses: rpi-open-firmware
+[docs/sources.md](https://github.com/redox-rpi/rpi-open-firmware/blob/redox-rpi/docs/sources.md).
 
 ## Changing a version
 
