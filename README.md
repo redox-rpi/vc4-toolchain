@@ -13,7 +13,7 @@ fixed commit:
 
 This repository holds no copies of them: only the pinned versions
 (`toolchain.lock`) and the scripts that build and test them. Its own files
-are MIT.
+are MIT. Issues: GitHub project [RPI Open Firmware](https://github.com/orgs/redox-rpi/projects/3).
 
 ## Build and test
 
