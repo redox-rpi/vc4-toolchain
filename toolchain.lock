@@ -10,7 +10,7 @@ TINYCC_COMMIT=2634f616      # main, 2026-11-14 (backend #1, data addend fix #7)
 # (Mathias Gottschlag, MIT) with Julian Brown's VC4 additions and our fixes
 # (asr, switch, bitflip, counters); see its README.
 RESIM_URL=https://github.com/redox-rpi/resim
-RESIM_COMMIT=3a23b65        # branch vc4-tests (resim PR #1); master after the merge
+RESIM_COMMIT=4b542e7        # master, merge of resim PR #1
 
 # GCC 6.2.1 for VC4 (reference compiler, builds the firmware): Julian
 # Brown's vc4-toolchain with binutils, gcc and newlib as submodules (GPL).
